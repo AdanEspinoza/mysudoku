@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MySudoku</string>
+    <string name="difficulty">Select Difficulty</string>
     <string name="easy_mode">Easy</string>
     <string name="medium_mode">Medium</string>
     <string name="hard_mode">Hard</string>

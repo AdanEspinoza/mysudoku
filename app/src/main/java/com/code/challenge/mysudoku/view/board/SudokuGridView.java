@@ -20,15 +20,16 @@ public class SudokuGridView extends GridView{
 
     private final Context context;
     private final GameGridVM mGameGridVM;
+    private Cell mLastCell;
 
     public SudokuGridView(final Context context , AttributeSet attrs) {
         super(context,attrs);
 
         this.context = context;
+        mLastCell = new Cell(context, 0, 0);
         mGameGridVM = new GameGridVM(context, null);
 
         SudokuGridViewAdapter gridViewAdapter = new SudokuGridViewAdapter(context);
-
         setAdapter(gridViewAdapter);
 
         setOnItemClickListener(new OnItemClickListener() {
@@ -37,12 +38,11 @@ public class SudokuGridView extends GridView{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int x = position % 9;
                 int y = position / 9;
-
                 SudokuEngine.getInstance().setSelectedPosition(x, y);
-                Cell[][] Sudoku = mGameGridVM.getGrid();
-                Sudoku[x][y].setPressed(true);
-                Sudoku[x][y].setBackgroundColor(context.getResources().getColor(R.color.color_teal_200));
-                //gridViewAdapter.notifyDataSetChanged();
+
+                mLastCell.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+                view.setBackgroundColor(context.getResources().getColor(R.color.color_blue_grey_200));
+                mLastCell = (Cell) view;
             }
         });
     }
