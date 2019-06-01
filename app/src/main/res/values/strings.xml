@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MySudoku</string>
+    <string name="easy_mode">Easy</string>
+    <string name="medium_mode">Medium</string>
+    <string name="hard_mode">Hard</string>
+    <string name="taco_bell_mode">Taco Bell</string>
+
+    <string name="delete">DELETE</string>
+    <string name="validate">VALIDATE</string>
+
+    <string name="solved">Sudoku Solved</string>
+    <string name="valid">This sudoku IS valid</string>
+    <string name="invalid">This sudoku is NOT valid</string>
+
+    <string name="progressTitle">Your progress will be lost</string>
+    <string name="progressQuestion">Are you sure you want to go back?</string>
+    <string name="progressYES">Yes</string>
+    <string name="progressNO">No</string>
+</resources>
