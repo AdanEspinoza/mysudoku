@@ -14,3 +14,5 @@ It also can be improved by:
  - Adding a timer
  - Making a more complex logic for the three different game modes
  - Validating in multiple devices
+
+Note: I added some screenshots as my last commit
