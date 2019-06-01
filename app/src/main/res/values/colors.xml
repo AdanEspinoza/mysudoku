@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="androidGreen">#A4C639</color>
 
     <color name="btnunit_bluenopressed">#335078</color>
     <color name="btncurrency_bluenopressed">#1a1f40</color>

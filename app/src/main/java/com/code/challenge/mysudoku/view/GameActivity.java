@@ -4,11 +4,16 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.code.challenge.mysudoku.R;
 import com.code.challenge.mysudoku.model.SudokuEngine;
+import com.code.challenge.mysudoku.viewmodel.GameGridVM;
 
-public class GameActivity extends AppCompatActivity  {
+public class GameActivity extends AppCompatActivity {
+
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +31,17 @@ public class GameActivity extends AppCompatActivity  {
             case MainActivity.EASY:
             case MainActivity.MEDIUM:
             case MainActivity.HARD:
-                SudokuEngine.getInstance().createGrid(this, gameMode);
+                SudokuEngine.getInstance().createGrid(this, gameMode, onSolvedListener);
                 break;
             case MainActivity.TB:
-                SudokuEngine.getInstance().createGridFromFile(this);
+                SudokuEngine.getInstance().createGridFromFile(this,onSolvedListener);
                 break;
             default:
-                    SudokuEngine.getInstance().createGridFromFile(this);
+                    SudokuEngine.getInstance().createGridFromFile(this, onSolvedListener);
                 break;
         }
+
+        mTextView = findViewById(R.id.messages_textview);
     }
 
     @Override
@@ -57,4 +64,11 @@ public class GameActivity extends AppCompatActivity  {
         });
         alertDialog.show();
     }
+
+    private GameGridVM.OnSolvedListener onSolvedListener = new GameGridVM.OnSolvedListener() {
+        @Override
+        public void onSolvedSudoku() {
+            mTextView.setVisibility(View.VISIBLE);
+        }
+    };
 }

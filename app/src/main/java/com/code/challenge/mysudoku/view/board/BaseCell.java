@@ -10,7 +10,7 @@ public class BaseCell extends View {
 
 
     private int value;
-    private boolean modifiable = true;
+    public boolean modifiable = true;
     private boolean isPressed = false;
 
     public BaseCell(Context context) {

@@ -22,15 +22,23 @@
         android:layout_below="@+id/sudokuGridView"
         android:horizontalSpacing="5dp"
         android:verticalSpacing="5dp"
-        android:numColumns="5"
+        android:numColumns="4"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"/>
 
     <TextView
         android:id="@+id/messages_textview"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:text="@string/solved"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:textColor="@color/androidGreen"
+        android:textSize="@dimen/solvedDimen"
+        android:background="@color/colorBlack"
+        android:foregroundGravity="center"
+        android:padding="5dp"/>
 
 </RelativeLayout>

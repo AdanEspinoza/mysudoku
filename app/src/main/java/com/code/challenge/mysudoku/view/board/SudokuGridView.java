@@ -10,7 +10,6 @@ import android.widget.GridView;
 
 import com.code.challenge.mysudoku.R;
 import com.code.challenge.mysudoku.model.SudokuEngine;
-import com.code.challenge.mysudoku.viewmodel.GameGrid;
 import com.code.challenge.mysudoku.viewmodel.GameGridVM;
 
 /**
@@ -26,7 +25,7 @@ public class SudokuGridView extends GridView{
         super(context,attrs);
 
         this.context = context;
-        mGameGridVM = new GameGridVM(context);
+        mGameGridVM = new GameGridVM(context, null);
 
         SudokuGridViewAdapter gridViewAdapter = new SudokuGridViewAdapter(context);
 

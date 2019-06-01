@@ -40,10 +40,10 @@ public class SudokuEngine {
      * @param context
      * @param gameMode
      */
-    public void createGrid( Context context, String gameMode ){
+    public void createGrid(Context context, String gameMode , GameGridVM.OnSolvedListener onSolvedListener){
         int[][] Sudoku = SudokuGenerator.getInstance().generateGrid();
         Sudoku = SudokuGenerator.getInstance().removeElements(Sudoku, gameMode);
-        grid = new GameGridVM(context);
+        grid = new GameGridVM(context, onSolvedListener);
         grid.setGrid(Sudoku, false);
     }
 
@@ -51,10 +51,10 @@ public class SudokuEngine {
      * Method to read the sudoku from json file
      * @param context
      */
-    public void createGridFromFile(Context context) {
+    public void createGridFromFile(Context context, GameGridVM.OnSolvedListener onSolvedListener) {
         List<List<String>> inputList = readJson(context);
         int [][] sudokuFromFile = convertInputListToArray(inputList);
-        grid = new GameGridVM(context);
+        grid = new GameGridVM(context, onSolvedListener);
         grid.setGrid(sudokuFromFile, true);
     }
 

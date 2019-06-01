@@ -14,12 +14,14 @@ public class GameGridVM {
     private Cell[][] Sudoku = new Cell[9][9];
 
     private Context context;
+    OnSolvedListener onSolvedListener;
 
-    public GameGridVM(Context context ){
+    public GameGridVM(Context context, OnSolvedListener onSolvedListener){
         this.context = context;
+        this.onSolvedListener = onSolvedListener;
         for( int x = 0 ; x < 9 ; x++ ){
             for( int y = 0 ; y < 9 ; y++){
-                Sudoku[x][y] = new Cell(context);
+                Sudoku[x][y] = new Cell(context, x, y);
             }
         }
     }
@@ -50,7 +52,7 @@ public class GameGridVM {
         return Sudoku[x][y];
     }
 
-    public void setItem( int x , int y , int number ){
+    public void setItem( int x , int y , int number){
         Sudoku[x][y].setValue(number);
     }
 
@@ -63,7 +65,7 @@ public class GameGridVM {
         }
 
         if( SudokuValidator.getInstance().checkSudoku(sudokuGrid)){
-            Toast.makeText(context, R.string.solved, Toast.LENGTH_LONG).show();
+           onSolvedListener.onSolvedSudoku();
         }
     }
 
@@ -80,5 +82,10 @@ public class GameGridVM {
         }else {
             Toast.makeText(context, R.string.invalid, Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    public interface OnSolvedListener {
+        void onSolvedSudoku();
     }
 }
